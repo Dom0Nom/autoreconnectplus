@@ -1,0 +1,12 @@
+[
+  {
+    "modid": "autoreconnectplus",
+    "name": "AutoReconnectPlus",
+    "description": "Automatically reconnects to the last server and escapes Hypixel limbo. Powered by OneConfig.",
+    "version": "1.0.0",
+    "mcversion": "1.8.9",
+    "url": "",
+    "authorList": ["AutoReconnectPlus"],
+    "credits": "OneConfig by Polyfrost"
+  }
+]
