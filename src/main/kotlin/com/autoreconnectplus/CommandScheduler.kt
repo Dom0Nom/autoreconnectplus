@@ -17,15 +17,16 @@ object CommandScheduler {
     fun scheduleLimboEscape() {
         commandQueue.clear()
 
-        // Execute /lobby immediately
-        commandQueue.add(ScheduledCommand("/lobby", 0))
+        // Execute /lobby after 1 second (20 ticks)
+        commandQueue.add(ScheduledCommand("/lobby", 20))
 
-        // Execute /skyblock after delay
-        val delay = AutoReconnectConfig.getLobbyDelayTicks()
-        commandQueue.add(ScheduledCommand("/skyblock", delay))
+        // Execute /skyblock after additional delay from config
+        val additionalDelay = AutoReconnectConfig.getLobbyDelayTicks()
+        val totalDelay = 20 + additionalDelay
+        commandQueue.add(ScheduledCommand("/skyblock", totalDelay))
 
         if (AutoReconnectConfig.debugMode) {
-            println("[AutoReconnectPlus] Scheduled limbo escape: /lobby -> wait ${delay/20}s -> /skyblock")
+            println("[AutoReconnectPlus] Scheduled limbo escape: wait 1s -> /lobby -> wait ${additionalDelay/20}s -> /skyblock")
         }
     }
 
