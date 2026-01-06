@@ -12,7 +12,11 @@ object LimboDetector {
 
         val message = event.message.unformattedText.lowercase()
 
-        if (message.contains("warped to limbo") || message.contains("you are in limbo")) {
+        // Check for various limbo detection messages
+        if (message.contains("warped to limbo") ||
+            message.contains("you are in limbo") ||
+            message.contains("you are afk. return from around to return from afk")) {
+
             if (AutoReconnectConfig.debugMode) {
                 Minecraft.getMinecraft().thePlayer?.addChatMessage(
                     ChatComponentText("§6[AutoReconnectPlus]§r Limbo detected! Executing escape sequence...")
