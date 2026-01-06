@@ -15,7 +15,7 @@ object LimboDetector {
         // Check for various limbo detection messages
         if (message.contains("warped to limbo") ||
             message.contains("you are in limbo") ||
-            message.contains("you are afk. return from around to return from afk")) {
+            message.contains("you are afk. move around to return from afk")) {
 
             if (AutoReconnectConfig.debugMode) {
                 Minecraft.getMinecraft().thePlayer?.addChatMessage(
